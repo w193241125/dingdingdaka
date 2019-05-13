@@ -32,7 +32,7 @@ tap_place_xiaban = "adb  shell input tap 353 756"
 wake_up = "adb shell input keyevent 26"
 unlock = "adb shell input  swipe 370 952 370 318"
 wrap_a = "adb shell input  swipe 370 318 370 952"
-shut_up = "adb shell input tap 661 588"  # 收起
+shut_up = "adb shell input tap 654 594"  # 收起
 return_a = "adb  shell input tap 52 101"
 return_b = "adb  shell input tap 156 101"
 return_ding_index = "adb  shell input tap 75 1224"
@@ -119,7 +119,7 @@ def sign():
 
     print("启动dd")
     os.system(start_app)
-    time.sleep(15)
+    time.sleep(20)
     if isAwaked():
         if isLock():
             os.system(unlock)
@@ -133,20 +133,21 @@ def sign():
 
     # 操作钉钉
     os.system(tap_place_index)
-    time.sleep(1)
+    time.sleep(2)
     os.system(tap_place)
     # 下滑一下 保证位置
     os.system(wrap_a)
     # 收起
-    time.sleep(2)
+    time.sleep(4)
+    print('收起')
     os.system(shut_up)
-    time.sleep(2)
-    print('点击')
+    time.sleep(3)
+    print('点击考勤')
     os.system(tap_place_kaoqin2)
     # os.system(tap_place_kaoqin)
     # time.sleep(6)
     # os.system(tap_place_daka)
-    time.sleep(8)
+    time.sleep(10)
 
     if current_time <= "10:30":
         os.system(tap_place_shangban)
